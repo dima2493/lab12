@@ -172,6 +172,30 @@ Suite* coord_2d_suite(void)
 
 }
 
+
+START_TEST(test_2d_area) {
+  coord_2d_t a;
+  coord_2d_t b;
+  coord_2d_t c;
+
+  a.x = 0;
+  a.y = 0;
+  b.x = 0;
+  b.y = 0;
+  c.x = 0;
+  c.y = 0;
+  ck_assert(coord_2d_area_triangle(&a, &b, &c) == 0.0);
+
+  a.x = 0;
+  a.y = 0;
+  b.x = 0;
+  b.y = 2;
+  c.x = 2;
+  c.y = 0;
+  ck_assert(coord_2d_area_triangle(&a, &b, &c) == 2.0);
+}
+END_TEST
+
 /* main: run test suites and set exit status */
 int main(void){
 
